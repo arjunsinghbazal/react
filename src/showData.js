@@ -18,7 +18,7 @@ const ShowData = () => {
         navigate(`/item/${post.id}`);
     }
 
-    if (loading) return <h1>Loading...</h1>
+    if (loading) return <h1>Please wait...</h1>
     if (error) return <h1>{error}</h1>
 
     return (
