@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import ShowData from "./showData";
+import SingleData from "./SingleData";
 
-function App() {
+const App = () => {
+  const navigate = useNavigate();
+
+  function handleNavigateToShowData() {
+    navigate("/");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <nav>
+          <p onClick={handleNavigateToShowData}>Social Media App</p> {/* Add onClick event */}
+        </nav>
+        <Routes>
+          <Route path="/" element={<ShowData />} />
+          <Route path="/item/:id" element={<SingleData />} />
+        </Routes>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
